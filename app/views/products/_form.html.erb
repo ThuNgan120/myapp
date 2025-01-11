@@ -1,25 +1,26 @@
-<%= form_with model: product do |form| %>
-    <div>
-      <%= form.label :name %>
-      <%= form.text_field :name %>
-    </div>
 
-    <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.rich_text_area :description %>
+<%= form_with model: product, local: true, class: "needs-validation" do |form| %>
+  <div class="mb-3">
+    <%= form.label :name, "Product Name", class: "form-label" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Enter product name", required: true %>
   </div>
-  
+
+  <div class="mb-3">
+    <%= form.label :description, "Description", class: "form-label" %>
+    <%= form.rich_text_area :description, class: "form-control", placeholder: "Enter description" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :featured_image, "Featured Image", class: "form-label" %>
+    <%= form.file_field :featured_image, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :inventory_count, "Inventory Count", class: "form-label" %>
+    <%= form.number_field :inventory_count, class: "form-control", placeholder: "Enter inventory count" %>
+  </div>
+
   <div>
-  <%= form.label :featured_image, style: "display: block" %>
-  <%= form.file_field :featured_image, accept: "image/*" %>
-</div>
-
-<div>
-    <%= form.label :inventory_count, style: "display: block" %>
-    <%= form.number_field :inventory_count %>
+    <%= form.submit "Save", class: "btn btn-primary" %>
   </div>
-    <div>
-      <%= form.submit %>
-    </div>
-  <% end %>
-  
+<% end %>

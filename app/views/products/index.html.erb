@@ -1,15 +1,18 @@
-<%= link_to "Login", new_session_path unless authenticated? %>
+<%= link_to "Login", new_session_path, class: "btn btn-primary mb-4" unless authenticated? %>
 
-<h1><%= t ".title" %></h1>
+<h1 class="navbar navbar-expand-sm bg-light justify-content-center"><%= t ".title" %></h1>
 
+<%= link_to "New Product", new_product_path, class: "btn btn-success mb-4" if authenticated? %>
 
-<%= link_to "New product", new_product_path if authenticated? %>
-
-
-<div id="products">
+<div id="products" class="row">
   <% @products.each do |product| %>
-    <div>
-      <%= link_to product.name, product %>
+    <div class="col-md-3 mb-4">
+      <div class="card shadow-sm h-100">
+        <%= image_tag product.featured_image, class: "card-img-top", alt: product.name if product.featured_image.attached? %>
+        <div class="card-body text-center">
+          <h5 class="card-title"><%= link_to product.name, product, class: "text-decoration-none text-dark" %></h5>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>

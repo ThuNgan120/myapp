@@ -37,4 +37,19 @@ body {
     flex-basis: 50%;
     max-width: 50%;
   }
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
   
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-img-top {
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover .card-img-top {
+    transform: scale(1.1);
+  }
