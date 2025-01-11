@@ -1,8 +1,5 @@
 class SubscribersController < ApplicationController
-  def allow_unauthenticated_access
-    # Logic cho phép truy cập không xác thực
-  end
-  allow_unauthenticated_access
+  
     before_action :set_product
   
     def create
